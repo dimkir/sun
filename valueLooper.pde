@@ -1,3 +1,23 @@
+/*
+  This is convenience class, which allows to 'loop' through an  array of values.
+  To use it:
+   1) init ValueLooper with some values (let's say blend modes)
+   
+           ValueLooper<Integer> valLooper = new ValueLooper<>();
+           
+           valLooper.add(new Integer[]  { BLEND, ADD, SUBTRACT } );
+           
+           // if you want to query 'aliases' you can add String[] of 'labels' (of same size)
+           valLooper.addLabels(new String[] { "BLEND" , "ADD label", "SUBTRACT this" });
+       
+       
+   2) ValueLooper is ready to loop through the values, just call 'T getNextForever()' to do that.
+           int myNextInt = valLooper.getNextForever();
+           // you can use the integer.
+           // if you want to get the label for the last returned value call
+           String myNextIntLabel = valLooper.getLastReturnedLabel();
+  
+*/
 class ValueLooper<T> 
 {
    private T[] mHolder;
