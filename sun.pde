@@ -32,7 +32,7 @@ void draw() {
 //  if ( true) return;
    blendMode(MY_BLEND_MODE);
   
-  noiseCircle.draw(x0, y0);
+  noiseCircle.drawAt(x0, y0);
 
  // filter(BLUR);
   
