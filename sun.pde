@@ -14,8 +14,15 @@ void setup() {
   // setup noise circle
   noiseCircle = new NoiseCircle();
   
+  // setup random noise circles
+  randomNoiseCircles = new NoiseCircle[C_RANDOM_NC_COUNT];
+  for(int i =0  ; i < C_RANDOM_NC_COUNT; i++){
+     randomNoiseCircles[i] = new NoiseCircle(random(width), random(height));
+  }
 }
 
+final int C_RANDOM_NC_COUNT = 10;
+NoiseCircle[] randomNoiseCircles;
 NoiseCircle noiseCircle;
 
 // noise circle drawing position
@@ -23,6 +30,12 @@ float x0, y0;
 
 // the blend mode for blending circle on top of image
 int MY_BLEND_MODE; // needs to be initialized in setup
+
+void drawRandomNC(){
+   for(int i = 0; i < randomNoiseCircles.length ; i++){
+      randomNoiseCircles[i].draw();
+   }
+}
 
 void draw() {
 //  background(30);
@@ -34,6 +47,7 @@ void draw() {
   
   noiseCircle.drawAt(x0, y0);
 
+   drawRandomNC();
  // filter(BLUR);
   
 }
