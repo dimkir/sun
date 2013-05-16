@@ -1,6 +1,6 @@
 
 void setup() {
-  size(800, 600, P2D);
+  size(displayWidth, displayHeight, P2D);
 //  size(800, 600);
   x0 = width/2;
   y0 = height/2;
@@ -11,6 +11,8 @@ void setup() {
   setupValueLooper();
 }
 
+
+// t - parameters for the perlin noise!
 float t2 = 3;
 float dt2 = 0.01;
 
