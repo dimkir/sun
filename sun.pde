@@ -4,11 +4,11 @@ void setup() {
 //  size(800, 600);
   x0 = width/2;
   y0 = height/2;
-  setLineStroke();
+  setLineStroke();  // sets color and strokeWeight
 
   //frameRate(5);
-  setupImage();
-  setupValueLooper();
+  setupImage();        // loads image (& scales it, to scale defined as constant)
+  setupValueLooper();  // just initializes value looper with available blend modes
 }
 
 
@@ -16,8 +16,10 @@ void setup() {
 float t2 = 3;
 float dt2 = 0.01;
 
+// noise circle drawing position
 float x0, y0;
 
+// the blend mode for blending circle on top of image
 int MY_BLEND_MODE; // needs to be initialized in setup
 
 void draw() {
