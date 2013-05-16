@@ -13,10 +13,6 @@ void setup() {
 }
 
 
-// t - parameters for the perlin noise!
-float t2 = 3;
-float dt2 = 0.01;
-
 // noise circle drawing position
 float x0, y0;
 
@@ -32,7 +28,7 @@ void draw() {
    blendMode(MY_BLEND_MODE);
   
   drawNoiseCircle(t2, x0, y0);
-  t2 += dt2;
+
  // filter(BLUR);
   
 }
