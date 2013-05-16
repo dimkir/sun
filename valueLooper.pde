@@ -26,6 +26,8 @@ class ValueLooper<T>
    private String[] mLabels;  // if empty - no labels are there
    
    
+   // TODO: should I make a defensive copy here ? 
+   // because it seems that this array is going to be mutable and it may result in a crash, may someone modify it
    void add(T[] values){
       if ( values == null || values.length == 0 ){
          throw new IllegalArgumentException("Should be valid arrays");
