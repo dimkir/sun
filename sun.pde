@@ -7,7 +7,8 @@ void setup() {
   setLineStroke();  // sets color and strokeWeight
 
   //frameRate(5);
-  setupImage();        // loads image (& scales it, to scale defined as constant)
+  //setupImage();        // loads image (& scales it, to scale defined as constant)
+  setupImageFullScreen();
   setupValueLooper();  // just initializes value looper with available blend modes
 }
 
