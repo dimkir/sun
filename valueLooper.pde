@@ -63,7 +63,7 @@ class ValueLooper<T>
    }
    
    
-   int nextIdForever(){
+   private int nextIdForever(){
       lastReturnedPointer = pointer;
       pointer++;
       pointer = pointer % mHolder.length;
