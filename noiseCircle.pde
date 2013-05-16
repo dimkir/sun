@@ -3,7 +3,9 @@
 */
 class NoiseCircle
 {
-  
+    
+    // variables to hold default positions
+    private float mX, mY;  
     
     // t - parameters for the perlin noise!
     private float t2 = 3;
@@ -13,8 +15,24 @@ class NoiseCircle
     private final float C_AMPLITUDE = 80; // amplitude of radius noise
     private final float C_CURVE_INTENSITY = 6.5;
     
+  /*
+    Defines noise circle at position (0,0). 
+    This constructor is to be used if you want to later draw NC via drawAt() method
+  */
+  NoiseCircle(){
+     // default values of mX and mY are (0,0) anyways.
+  }
+  
+  NoiseCircle(float vX, float vY){
+     mX = vX;
+     mY = vY;
+  }
+   
+  void draw(){
+     drawAt(mX, mY);
+  } 
 
-  void draw(float xx, float yy){
+  void drawAt(float xx, float yy){
      drawNoiseCircle(t2, xx, yy);
      
      t2 += dt2;        
