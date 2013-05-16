@@ -1,9 +1,9 @@
 class ValueLooper<T> 
 {
-   T[] mHolder;
-   int pointer = -1; 
-   int lastReturnedPointer = -1; 
-   String[] mLabels;  // if empty - no labels are there
+   private T[] mHolder;
+   private int pointer = -1; 
+   private int lastReturnedPointer = -1; 
+   private String[] mLabels;  // if empty - no labels are there
    
    
    void add(T[] values){
