@@ -10,8 +10,13 @@ void setup() {
   //setupImage();        // loads image (& scales it, to scale defined as constant)
   setupImageFullScreen();
   setupValueLooper();  // just initializes value looper with available blend modes
+  
+  // setup noise circle
+  noiseCircle = new NoiseCircle();
+  
 }
 
+NoiseCircle noiseCircle;
 
 // noise circle drawing position
 float x0, y0;
@@ -27,7 +32,7 @@ void draw() {
 //  if ( true) return;
    blendMode(MY_BLEND_MODE);
   
-  drawNoiseCircle(t2, x0, y0);
+  noiseCircle.draw(x0, y0);
 
  // filter(BLUR);
   
