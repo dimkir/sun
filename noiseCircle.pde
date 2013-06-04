@@ -89,4 +89,11 @@ class NoiseCircle
    
   }
   
+  /**
+  * Sets stroke weight and stroke color.
+  */
+  void setLineStroke(){
+    stroke(0x00ffd545);
+    strokeWeight(3);  
+  }  
 }

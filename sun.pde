@@ -5,8 +5,7 @@ void setup() {
 //  size(800, 600);
   x0 = width/2;
   y0 = height/2;
-  setLineStroke();  // sets color and strokeWeight
-
+ 
   //frameRate(5);
   //setupImage();        // loads image (& scales it, to scale defined as constant)
   bgImage = new BgImage();
@@ -66,11 +65,4 @@ void mousePressed(){
    println("Changed blend mode to: " + MY_BLEND_MODE + ": "+  valueLooper.getLastReturnedLabel());
    x0 = mouseX;
    y0 = mouseY;
-}
-
-void setLineStroke()
-{
-  
-  stroke(0x00ffd545);
-  strokeWeight(3);  
 }
