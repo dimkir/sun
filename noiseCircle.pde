@@ -1,7 +1,7 @@
 /*
   This encapsulates noise circle logic.
 */
-class NoiseCircle
+class Nircle
 {
     
     // variables to hold default positions
@@ -19,11 +19,11 @@ class NoiseCircle
     Defines noise circle at position (0,0). 
     This constructor is to be used if you want to later draw NC via drawAt() method
   */
-  NoiseCircle(){
+  Nircle(){
      // default values of mX and mY are (0,0) anyways.
   }
   
-  NoiseCircle(float vX, float vY){
+  Nircle(float vX, float vY){
      mX = vX;
      mY = vY;
   }
