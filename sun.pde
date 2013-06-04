@@ -1,3 +1,4 @@
+ValueLooper<Integer> valueLooper = new BlendModeValueLooper();
 
 void setup() {
   size(displayWidth, displayHeight);
