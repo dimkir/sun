@@ -1,5 +1,5 @@
 ValueLooper<Integer> valueLooper = new BlendModeValueLooper();
-
+BgImage bgImage;
 void setup() {
   size(displayWidth, displayHeight);
 //  size(800, 600);
@@ -9,7 +9,7 @@ void setup() {
 
   //frameRate(5);
   //setupImage();        // loads image (& scales it, to scale defined as constant)
-  setupImageFullScreen();
+  bgImage = new BgImage();
  // setupValueLooper();  // just initializes value looper with available blend modes
   
   // setup noise circle
@@ -44,7 +44,7 @@ void draw() {
 //  background(30);
   background(0);
 //blendMode(SCREEN);  
-  image(myBg, 0, 0);
+  bgImage.draw();
 //  if ( true) return;
    blendMode(MY_BLEND_MODE);
   
