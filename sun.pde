@@ -1,6 +1,6 @@
 
 void setup() {
-  size(displayWidth, displayHeight, P2D);
+  size(displayWidth, displayHeight);
 //  size(800, 600);
   x0 = width/2;
   y0 = height/2;
@@ -9,7 +9,7 @@ void setup() {
   //frameRate(5);
   //setupImage();        // loads image (& scales it, to scale defined as constant)
   setupImageFullScreen();
-  setupValueLooper();  // just initializes value looper with available blend modes
+ // setupValueLooper();  // just initializes value looper with available blend modes
   
   // setup noise circle
   noiseCircle = new NoiseCircle();
@@ -19,9 +19,11 @@ void setup() {
   for(int i =0  ; i < C_RANDOM_NC_COUNT; i++){
      randomNoiseCircles[i] = new NoiseCircle(random(width), random(height));
   }
+  
+
 }
 
-final int C_RANDOM_NC_COUNT = 10;
+final int C_RANDOM_NC_COUNT = 0;
 NoiseCircle[] randomNoiseCircles;
 NoiseCircle noiseCircle;
 
@@ -49,7 +51,12 @@ void draw() {
 
    drawRandomNC();
  // filter(BLUR);
-  
+    displayFrameRate(); 
+}
+
+void displayFrameRate(){
+    fill(255);
+    text("frameRate: " + int(frameRate), 10, 10);
 }
 
 void mousePressed(){

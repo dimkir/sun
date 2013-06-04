@@ -18,7 +18,7 @@
            String myNextIntLabel = valLooper.getLastReturnedLabel();
   
 */
-class ValueLooper<T> 
+abstract class ValueLooper<T> 
 {
    private T[] mHolder;
    private int pointer = -1; 
@@ -75,5 +75,8 @@ class ValueLooper<T>
    String getLastReturnedLabel(){
       return mLabels[lastReturnedPointer];
    }
+   
+   
+   protected abstract void setupValueLooper(ValueLooper<T> valueLooper);
    
 }
