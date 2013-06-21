@@ -1,20 +1,21 @@
 ValueLooper<Integer> valueLooper = new BlendModeValueLooper();
 BgImage bgImage;
 NircleSystem nSystem;
-final int C_RANDOM_NC_COUNT = 1;
+final int C_RANDOM_NC_COUNT = 30;
 
 void setup() {
-  size(displayWidth, displayHeight);
-//  size(800, 600);
+   //size(displayWidth, displayHeight, P2D);
+   size(displayWidth, displayHeight);
+  //size(800, 600);
  
   //frameRate(5);
   //setupImage();        // loads image (& scales it, to scale defined as constant)
   bgImage = new BgImage();
  // setupValueLooper();  // just initializes value looper with available blend modes
   
-  nSystem = new NircleSystem(C_RANDOM_NC_COUNT);
+  nSystem = new NircleSystem(C_RANDOM_NC_COUNT, width, height);
   
-
+  frameRate(60);
 
 }
 

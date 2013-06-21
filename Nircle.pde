@@ -1,5 +1,7 @@
 /*
   This encapsulates noise circle logic.
+  Dependencies:
+   implicitly is dependent on keyPress
 */
 class Nircle
 {
@@ -15,19 +17,71 @@ class Nircle
     private final float C_AMPLITUDE = 80; // amplitude of radius noise
     private final float C_CURVE_INTENSITY = 6.5;
     
-  /*
-    Defines noise circle at position (0,0). 
-    This constructor is to be used if you want to later draw NC via drawAt() method
+    private  PImage mDot;
+    
+    
+    /**
+    * These two are meant for keeping dimensions of the drawing surface. This way we can use pixels[] array
+    * to quickly plot the points.
+    */
+    private int mWidth, mHeight; 
+    
+ 
+  /**
+  * Inits nircle with (X,Y) position and the width and height of surface.
+  * Incuim vWidth and vHeight are only necessary for quickly plotting pixels through pixels[] array. (int[] mPixelz)
   */
-  Nircle(){
-     // default values of mX and mY are (0,0) anyways.
-  }
-  
-  Nircle(float vX, float vY){
+  Nircle(float vX, float vY, int vWidth, int vHeight){
      mX = vX;
      mY = vY;
+     mWidth = vWidth;
+     mHeight = vHeight;
+     onInit();
+  }
+  
+  /**
+  * Is called by constrcutors to init vars common to all constructors.
+  */
+  private void onInit(){
+     mDot = loadImage("dot.png");
   }
    
+   
+  /**
+  * Draws WHOLE NIRCLE but via pixels array
+  */
+  void drawPixels(color[] pixelz){
+      mPixelz = pixelz;
+      drawAt(mX, mY);
+      mPixelz = null;
+  }
+  private color[] mPixelz = null;  // for nirclePoint - if mPixelz isn't null - it means it should be drawn with mPixelz.
+
+  /**
+  * This is delegate which is plotting point ( can be via point or via pixelz array)
+  */
+  void nirclePoint(float xx, float yy){
+     if ( mPixelz != null ){
+         int ixx = (int) xx;
+         int iyy = (int) yy;
+         int pixelIndex = iyy * mWidth + ixx;
+         if ( pixelIndex < 0  || pixelIndex >= mPixelz.length ){
+              // we just don't plot pixels outside of range
+              // println("Pixel index is out of bounds: " + pixelIndex + " pixel array size: " + mPixelz.length);
+         }
+         else{
+           mPixelz[pixelIndex] = #FFFFFF;
+         } 
+     }
+     else{
+        // draw with regualr point
+        point(xx, yy);
+     }
+     
+     
+  }
+  
+  
   void draw(){
      drawAt(mX, mY);
   } 
@@ -66,17 +120,18 @@ class Nircle
               firstRadius = radius;
             }
         
-        
-        
             x = radius * cos(angle);
             y = radius * sin(angle);
         
             if ( keyPressed) {
-              point(x0+ x, y0 + y);
+              setLineStroke();
+              //point(x0+ x, y0 + y);
+              spot(x0 + x , y0 + y);
             }
             else {
               setLineStroke();
-              line(x0, y0, x0 + x, y0 + y);
+              //line(x0, y0, x0 + x, y0 + y);
+              nirclePoint(x0+ x, y0 + y);
             }
         
         
@@ -93,7 +148,13 @@ class Nircle
   * Sets stroke weight and stroke color.
   */
   void setLineStroke(){
+    fill(0x00ffd545);
     stroke(0x00ffd545);
-    strokeWeight(3);  
+    strokeWeight(1);  
   }  
+  
+  
+  void spot(float xx, float yy){
+     image(mDot, xx, yy);
+  }
 }
